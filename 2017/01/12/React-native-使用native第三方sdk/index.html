@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React-native 使用native第三方sdk | cong876&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="React-native 使用native第三方sdkios(以阿里百川用户反馈为例)
+首先安装cocopods(类似于npm，ios开发的依赖管理工具，教程：http://www.code4app.com/article/cocoapods-install-usage)
+
+在ios根目录下创建Podfile文件，添加如下代码(使用的是百川feedback1.1.1版本)，然后执行pod inst">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-native 使用native第三方sdk">
+<meta property="og:url" content="http://cong876.github.io/2017/01/12/React-native-使用native第三方sdk/index.html">
+<meta property="og:site_name" content="cong876's blog">
+<meta property="og:description" content="React-native 使用native第三方sdkios(以阿里百川用户反馈为例)
+首先安装cocopods(类似于npm，ios开发的依赖管理工具，教程：http://www.code4app.com/article/cocoapods-install-usage)
+
+在ios根目录下创建Podfile文件，添加如下代码(使用的是百川feedback1.1.1版本)，然后执行pod inst">
+<meta property="og:updated_time" content="2017-01-12T10:37:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React-native 使用native第三方sdk">
+<meta name="twitter:description" content="React-native 使用native第三方sdkios(以阿里百川用户反馈为例)
+首先安装cocopods(类似于npm，ios开发的依赖管理工具，教程：http://www.code4app.com/article/cocoapods-install-usage)
+
+在ios根目录下创建Podfile文件，添加如下代码(使用的是百川feedback1.1.1版本)，然后执行pod inst">
+  
+    <link rel="alternate" href="/atom.xml" title="cong876&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">cong876&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://cong876.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-React-native-使用native第三方sdk" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/12/React-native-使用native第三方sdk/" class="article-date">
+  <time datetime="2017-01-12T10:37:06.000Z" itemprop="datePublished">2017-01-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React-native 使用native第三方sdk
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="React-native-使用native第三方sdk"><a href="#React-native-使用native第三方sdk" class="headerlink" title="React-native 使用native第三方sdk"></a>React-native 使用native第三方sdk</h2><h4 id="ios-以阿里百川用户反馈为例"><a href="#ios-以阿里百川用户反馈为例" class="headerlink" title="ios(以阿里百川用户反馈为例)"></a>ios(以阿里百川用户反馈为例)</h4><ol>
+<li><p>首先安装cocopods(类似于npm，ios开发的依赖管理工具，教程：<a href="http://www.code4app.com/article/cocoapods-install-usage" target="_blank" rel="external">http://www.code4app.com/article/cocoapods-install-usage</a>)</p>
+</li>
+<li><p>在ios根目录下创建Podfile文件，添加如下代码(使用的是百川feedback1.1.1版本)，然后执行pod install命令</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  target ‘Xss’ do </div><div class="line">   pod &apos;YWFeedbackFMWK&apos;, &apos;~&gt; 1.1.1&apos;</div><div class="line">end</div></pre></td></tr></table></figure>
+<ol>
+<li>pod安装完成后，使用xcode打开Xss.xcworkspace(我的项目名是Xss)，在项目中创建BCBridge.h以及BCBridge.m文件，以建立js和原生的bridge，.h文件只是个头文件，.m文件代码如下<br>在这里简要介绍下ios下的controllerView切换机制，controllerView 切换主要有两种，push和present，其中，push必须在同一UINavigationController发生，push的动画表现为横向切入，present的动画为底部向上切入(类似于弹窗)，由于react-native本身处于一个UINavigationController中，然后我目前还没有找到能向这个UINavigationController中push的方法，所以这里采用的是present的方式。<br>由于这种controller切换在oc里限制比较多，且使用别人的viewController可自定义的部分太受限，所以不是很推荐这种方式。</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">"RCTBridge.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"RCTEventDispatcher.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"RCTRootView.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"BCBridge.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">"YWFeedbackFMWK/YWFeedbackKit.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">static</span> YWFeedbackKit *feedbackKit;    <span class="comment">// 声明一个阿里百川feedback对象</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BCBridge</span> ()</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UINavigationController</span> *navi;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">BCBridge</span></span></div><div class="line"></div><div class="line">+(<span class="keyword">void</span>)initialize &#123;</div><div class="line">  <span class="comment">// 使用在百川后台申请的appkey来初始化feedbackKit</span></div><div class="line">  feedbackKit = [[YWFeedbackKit alloc] initWithAppKey: <span class="string">@"yourappkey"</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 建立Bridge，在js中直接使用</span></div><div class="line">RCT_EXPORT_MODULE(BCBridge);</div><div class="line"></div><div class="line"><span class="comment">// 在js中调用时函数名为BCFeedback</span></div><div class="line">RCT_EXPORT_METHOD(BCFeedback: (<span class="built_in">NSDictionary</span> *)style) &#123;</div><div class="line">  <span class="comment">// 自定义的样式注入，style变量为NSDictionary类型的，有js方法调用时传入，js中表现为Object</span></div><div class="line">  feedbackKit.customUIPlist = style;</div><div class="line">  <span class="comment">// 将present操作提升到主进程来做(这里我也不太懂oc)，这里百川1.0的feedback必须这样做才能切换过去，2.0不存在这个问题</span></div><div class="line">  <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</div><div class="line">    <span class="comment">// 调用阿里百川提供的初始化方法，此方法接受一个回调函数，默认参数为初始化后的viewController</span></div><div class="line">    [feedbackKit makeFeedbackViewControllerWithCompletionBlock:^(YWLightFeedbackViewController *viewController, <span class="built_in">NSError</span> *error) &#123;</div><div class="line">      <span class="comment">// 创建一个新的UINavigationController以阿里百川返回的viewController为RootViewController</span></div><div class="line">      <span class="built_in">UINavigationController</span> *nav = [[<span class="built_in">UINavigationController</span> alloc] initWithRootViewController:viewController];</div><div class="line">      <span class="comment">// 将此controller设为当前域，可以退出</span></div><div class="line">      <span class="keyword">self</span>.navi = nav;</div><div class="line">      <span class="comment">// 设置title</span></div><div class="line">      viewController.title = <span class="string">@"意见反馈"</span>;</div><div class="line">      <span class="comment">// 设置关闭按钮</span></div><div class="line">      viewController.navigationItem.rightBarButtonItem = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithTitle:<span class="string">@"关闭"</span> style:<span class="built_in">UIBarButtonItemStylePlain</span> target:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(back)];</div><div class="line">      <span class="comment">// 执行present操作(此view将从屏幕下方向上切入)</span></div><div class="line">      [[<span class="built_in">UIApplication</span> sharedApplication].delegate.window.rootViewController presentViewController:nav animated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</div><div class="line">    &#125;];</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 声明退出函数</span></div><div class="line">- (<span class="keyword">void</span>)back</div><div class="line">&#123;</div><div class="line">  [<span class="keyword">self</span>.navi dismissViewControllerAnimated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>js中调用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  NativeModules</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span></div><div class="line"></div><div class="line">NativeModules.BCBridge.BCFeedback(options)</div></pre></td></tr></table></figure>
+<ol>
+<li>至此，封装完毕，但是这种方式并不友好，而且也不符合react-native统一ui的思想，所以建议使用此种方式来封装第三方sdk的方法(获取数据)，然后使用react-native实现一套统一的ui(既可用于android也可用于ios)。但阿里百川并没有提供直接获取数据的方法，所以选择sdk时一定要慎重。</li>
+</ol>
+<h4 id="android"><a href="#android" class="headerlink" title="android"></a>android</h4><ol>
+<li>依据官方文档下载对应版本的sdk(这里使用的是1.1.3版本的)</li>
+<li>在app下建立libs文件夹(如果没有的话)，将sdk中文件放进去，将项目根目录下的build.gradle文件对应位置添加如下语句</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">allprojects &#123;</div><div class="line">    repositories &#123;</div><div class="line">      ...</div><div class="line">        flatDir &#123;</div><div class="line">            dirs <span class="string">'libs'</span></div><div class="line">        &#125;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在app目录下的build.gradle文件对应位置添加如下语句<br>有个大坑是因为阿里百川feedbackSdk默认使用multidex模式编译，如果不在项目中做对应设置，会导致一直编译不通过，看了无数种解决办法才解决此问题，泪崩<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">``` java</div><div class="line">    defaultConfig &#123;</div><div class="line">    ...</div><div class="line">        multiDexEnabled true                         // 开启multidex模式编译，此处为大坑，否则编译不过</div><div class="line">    &#125;</div><div class="line">dependencies &#123;</div><div class="line">  ...</div><div class="line">    compile &apos;com.android.support:multidex:1.0.0&apos;     // 此依赖用于开启mulidex模式编译</div><div class="line">    compile(name: &apos;feedbackSdk&apos;, ext: &apos;aar&apos;)</div><div class="line">    compile files(&apos;libs/securityguard-3.1.27.jar&apos;)</div><div class="line">    compile files(&apos;libs/utdid4all-1.0.4.jar&apos;)</div><div class="line">    compile files(&apos;libs/alisdk-ut-5.jar&apos;)</div><div class="line">&#125;</div><div class="line">```</div><div class="line">3. 初始化</div><div class="line">在MainActivity类中的onCreate方法中添加如下语句(如果FeedbackAPI无法引入，说明sdk依赖为添加成功，请检查上一步)</div><div class="line">```java</div><div class="line">        MultiDex.install(this);      // 同样是开启multidex模式编译，网上大部分解决方案都没提这个设置，泪崩</div></pre></td></tr></table></figure></p>
+<pre><code>FeedbackAPI.initAnnoy(this.getApplication(), &quot;yourappkey&quot;);    // 初始化阿里百川意见反馈
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">4. 封装activity切换方法</div><div class="line">创建BCBridge类(注意引入对应依赖)</div><div class="line">具体代码如下</div><div class="line">``` java</div><div class="line">public class BCBridge extends ReactContextBaseJavaModule &#123;</div><div class="line"></div><div class="line">    public BCBridge(final ReactApplicationContext reactContext) &#123;</div><div class="line">        super(reactContext);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getName() &#123;</div><div class="line">      // 设置在js中调用的类名</div><div class="line">        return &quot;BCBridge&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  // 在js中调用的方法名同样为BCFeedback，readableMap对应js中的Object</div><div class="line">    @ReactMethod</div><div class="line">    public void BCFeedback(ReadableMap map) &#123;</div><div class="line">        ReadableNativeMap middleMap = (ReadableNativeMap) map;</div><div class="line">        // 将ReadableMap转化为hashMap</div><div class="line">        Map nativeMap = middleMap.toHashMap();</div><div class="line">        // 设置部分ui样式</div><div class="line">        FeedbackAPI. setUICustomInfo(nativeMap);</div><div class="line">        // 切换到阿里百川反馈界面</div><div class="line">        FeedbackAPI.openFeedbackActivity(getReactApplicationContext());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>建立BCBridgePackage<br>将上一步封装的方法集成到应用中(我是这样理解的)<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BCBridgePackage</span> <span class="keyword">implements</span> <span class="title">ReactPackage</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;NativeModule&gt; <span class="title">createNativeModules</span><span class="params">(ReactApplicationContext reactContext)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> Arrays.&lt;NativeModule&gt;asList(</div><div class="line">                <span class="keyword">new</span> BCBridge(reactContext)</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> List&lt;Class&lt;? extends JavaScriptModule&gt;&gt; createJSModules() &#123;</div><div class="line">        <span class="keyword">return</span> Collections.emptyList();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;ViewManager&gt; <span class="title">createViewManagers</span><span class="params">(ReactApplicationContext reactContext)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> Collections.emptyList();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>同时在MainApplication中对应位置添加如下代码(如果引用一些别人封装好的rn-原生组件，通过rn link 也能实现此操作，但是手动更改此文件时可能会导致一些情况下rn link失效，请注意检查)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> List&lt;ReactPackage&gt; <span class="title">getPackages</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> Arrays.&lt;ReactPackage&gt;asList(</div><div class="line">      ...</div><div class="line">      <span class="keyword">new</span> BCBridgePackage()</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ol>
+<li>对比于oc，java的代码好理解些，但是使用android的activity同样会有ios中提到的问题。</li>
+</ol>
+<h4 id="总结-个人心得"><a href="#总结-个人心得" class="headerlink" title="总结(个人心得)"></a>总结(个人心得)</h4><p>由于上面提到的封装原生的页面(ios中体现为viewController，android中体现为activity)，所以不提倡直接去使用别人集成好的viewController和activity，比较提倡使用这类方式来集成原生中的方法或者是组件，然后用rn来实现整体的ui布局，这样在开发成本上以及性能上都能得到很大的提高。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cong876.github.io/2017/01/12/React-native-使用native第三方sdk/" data-id="cixu9169800015z33sv18d1au" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/12/Code-push-使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Code-push 使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/16/利用iframe实现ajax跨域请求，抓取网页中ajax数据/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">利用iframe实现ajax跨域请求，抓取网页中ajax数据</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/12/Code-push-使用/">Code-push 使用</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/12/React-native-使用native第三方sdk/">React-native 使用native第三方sdk</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/16/利用iframe实现ajax跨域请求，抓取网页中ajax数据/">利用iframe实现ajax跨域请求，抓取网页中ajax数据</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Wangcong<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
